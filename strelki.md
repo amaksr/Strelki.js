@@ -1,186 +1,188 @@
-# StrelkiJS
+
+
+<!-- Start strelki.js -->
 
 StrelkiJS module
 
+## IndexedArray
 
-
-* * *
-
-## Class: IndexedArray
 Create new IndexArray object
 
-### StrelkiJS.IndexedArray.setOrdered(ordered) 
+## setOrdered(ordered)
 
 Set flag that indicates whether array should be ordered by "id" or not
 
-**Parameters**
+### Params:
 
-**ordered**: `boolean`, Set flag that indicates whether array should be ordered by "id" or not
+* **boolean** *ordered* 
 
-
-### StrelkiJS.IndexedArray.createIndex(fieldName) 
+## createIndex(fieldName)
 
 Creates hash index on array using fieldName property of the elements
 
-**Parameters**
+### Params:
 
-**fieldName**: `String`, Creates hash index on array using fieldName property of the elements
+* **String** *fieldName* 
 
-
-### StrelkiJS.IndexedArray.getData() 
+## getData()
 
 Returns hash array of objects
 
-**Returns**: `Object | *`
+### Return:
 
-### StrelkiJS.IndexedArray.loadArray(array) 
+* **[object Object]** 
+
+## loadArray(array)
 
 Puts all the elements from array
 
-**Parameters**
+### Params:
 
-**array**: `Array`, Puts all the elements from array
+* **Array** *array* 
 
-
-### StrelkiJS.IndexedArray.dropIndex(fieldName) 
+## dropIndex(fieldName)
 
 Drops index fieldName
 
-**Parameters**
+### Params:
 
-**fieldName**: `String`, Drops index fieldName
+* **String** *fieldName* 
 
-
-### StrelkiJS.IndexedArray.dropAllIndexes(fieldName) 
+## dropAllIndexes(fieldName)
 
 Drops all indexes
 
-**Parameters**
+### Params:
 
-**fieldName**: , Drops all indexes
+* *fieldName* 
 
-
-### StrelkiJS.IndexedArray.length() 
+## length()
 
 Returns number of elements in the array
 
-**Returns**: `Number`
+### Return:
 
-### StrelkiJS.IndexedArray.empty() 
+* **Number** 
+
+## empty()
 
 Delete all data in the array
 
-
-### StrelkiJS.IndexedArray.get(id) 
+## get(id)
 
 Returns record by "id" field
 
-**Parameters**
+### Params:
 
-**id**: , Returns record by "id" field
+* *id* 
 
-**Returns**: `*`
+### Return:
 
-### StrelkiJS.IndexedArray.getAt(pos) 
+* 
+
+## getAt(pos)
 
 Returns record at given position
 
-**Parameters**
+### Params:
 
-**pos**: `Number`, position of element
+* **Number** *pos* - position of element
 
-**Returns**: `*`
+### Return:
 
-### StrelkiJS.IndexedArray.put(element) 
+* 
+
+## put(element)
 
 Stores element with unique "id" to array. If element with given "id" was already there, it will be overriden with the new element
 
-**Parameters**
+### Params:
 
-**element**: , Stores element with unique "id" to array. If element with given "id" was already there, it will be overriden with the new element
+* *element* 
 
-
-### StrelkiJS.IndexedArray.del(id) 
+## del(id)
 
 Delete element by "id"
 
-**Parameters**
+### Params:
 
-**id**: , Delete element by "id"
+* *id* 
 
-
-### StrelkiJS.IndexedArray.delMany(ids) 
+## delMany(ids)
 
 Delete multimple elements by array of ids
 
-**Parameters**
+### Params:
 
-**ids**: `Array`, Delete multimple elements by array of ids
+* **Array** *ids* 
 
-
-### StrelkiJS.IndexedArray.toArray() 
+## toArray()
 
 Returns IndexedArray converted to regular Array
 
-**Returns**: `Array`
+### Return:
 
-### StrelkiJS.IndexedArray.findIdsByIndex(filedName, value) 
+* **Array** 
+
+## findIdsByIndex(filedName, value)
 
 Find elements by index value, and return their ids
 
-**Parameters**
+### Params:
 
-**filedName**: `String`, index name
+* **String** *filedName* - index name
+* **String** *value* - index value
 
-**value**: `String`, index value
+### Return:
 
-**Returns**: `Array`, - array of ids, empty array if not found
+* **Array** - array of ids, empty array if not found
 
-### StrelkiJS.IndexedArray.doLookups(el, joinInfoArray) 
+## doLookups(el, joinInfoArray)
 
 For element el perform lookups according to joinInfoArray, and return all related records
 
-**Parameters**
+### Params:
 
-**el**: , element
+* *el* - element
+* **Array** *joinInfoArray* 
 
-**joinInfoArray**: `Array`, For element el perform lookups according to joinInfoArray, and return all related records
+## query(joinInfoArray)
 
+Join other IndexedArrays according to joinInfoArray
+<pre>
+joinInfoArray = [
+ 	{
+ 		from_col:   mandatory field name in 'el' element
+ 		to_table:   mandatory reference to IndexedArray
+ 		to_col:     mandatory id or other indexed field in referenced IndexedArray
+ 	        type:       'outer' for outer join, null for inner join
+ 	        join:       optional nested joinInfoArray structure
+ 	},
 
-### StrelkiJS.IndexedArray.query(joinInfoArray) 
+ ]
+ </pre>
 
-Join other IndexedArrays according to joinInfoArray<pre>joinInfoArray = [ 	{ 		from_col:   mandatory field name in 'el' element 		to_table:   mandatory reference to IndexedArray 		to_col:     mandatory id or other indexed field in referenced IndexedArray 	        type:       'outer' for outer join, null for inner join 	        join:       optional nested joinInfoArray structure 	}, ] </pre>
+### Params:
 
-**Parameters**
+* *joinInfoArray* 
 
-**joinInfoArray**: , Join other IndexedArrays according to joinInfoArray<pre>joinInfoArray = [ 	{ 		from_col:   mandatory field name in 'el' element 		to_table:   mandatory reference to IndexedArray 		to_col:     mandatory id or other indexed field in referenced IndexedArray 	        type:       'outer' for outer join, null for inner join 	        join:       optional nested joinInfoArray structure 	}, ] </pre>
+### Return:
 
-**Returns**: `Array`, - array of records, where each record is an array of joined elements
+* **Array** - array of records, where each record is an array of joined elements
 
-### StrelkiJS.IndexedArray.where(fieldName, value, filterCallback) 
+## where(fieldName, value, filterCallback)
 
 Search array by index, and then by filterCallback function
 
-**Parameters**
+### Params:
 
-**fieldName**: , name of the index, null to select all elements
+* *fieldName* - name of the index, null to select all elements
+* *value* - value of the index
+* *filterCallback* - filter function that eccepts element as a parameter, and returns true or false
 
-**value**: , value of the index
+### Return:
 
-**filterCallback**: , filter function that eccepts element as a parameter, and returns true or false
+* **IndexedArray** - new IndexedArray with selected records
 
-**Returns**: `IndexedArray`, - new IndexedArray with selected records
-
-
-
-* * *
-
-
-
-
-
-
-
-
-
+<!-- End strelki.js -->
 
