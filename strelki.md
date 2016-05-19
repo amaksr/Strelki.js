@@ -1,6 +1,6 @@
-# IndexedArray
+# StrelkiJS
 
-IndexedArray module
+StrelkiJS module
 
 
 
@@ -9,7 +9,7 @@ IndexedArray module
 ## Class: IndexedArray
 Create new IndexArray object
 
-### IndexedArray.IndexedArray.setOrdered(ordered) 
+### StrelkiJS.IndexedArray.setOrdered(ordered) 
 
 Set flag that indicates whether array should be ordered by "id" or not
 
@@ -18,7 +18,7 @@ Set flag that indicates whether array should be ordered by "id" or not
 **ordered**: `boolean`, Set flag that indicates whether array should be ordered by "id" or not
 
 
-### IndexedArray.IndexedArray.createIndex(fieldName) 
+### StrelkiJS.IndexedArray.createIndex(fieldName) 
 
 Creates hash index on array using fieldName property of the elements
 
@@ -27,13 +27,13 @@ Creates hash index on array using fieldName property of the elements
 **fieldName**: `String`, Creates hash index on array using fieldName property of the elements
 
 
-### IndexedArray.IndexedArray.getData() 
+### StrelkiJS.IndexedArray.getData() 
 
 Returns hash array of objects
 
 **Returns**: `Object | *`
 
-### IndexedArray.IndexedArray.loadArray(array) 
+### StrelkiJS.IndexedArray.loadArray(array) 
 
 Puts all the elements from array
 
@@ -42,7 +42,7 @@ Puts all the elements from array
 **array**: `Array`, Puts all the elements from array
 
 
-### IndexedArray.IndexedArray.dropIndex(fieldName) 
+### StrelkiJS.IndexedArray.dropIndex(fieldName) 
 
 Drops index fieldName
 
@@ -51,7 +51,7 @@ Drops index fieldName
 **fieldName**: `String`, Drops index fieldName
 
 
-### IndexedArray.IndexedArray.dropAllIndexes(fieldName) 
+### StrelkiJS.IndexedArray.dropAllIndexes(fieldName) 
 
 Drops all indexes
 
@@ -60,18 +60,18 @@ Drops all indexes
 **fieldName**: , Drops all indexes
 
 
-### IndexedArray.IndexedArray.length() 
+### StrelkiJS.IndexedArray.length() 
 
 Returns number of elements in the array
 
 **Returns**: `Number`
 
-### IndexedArray.IndexedArray.empty() 
+### StrelkiJS.IndexedArray.empty() 
 
 Delete all data in the array
 
 
-### IndexedArray.IndexedArray.get(id) 
+### StrelkiJS.IndexedArray.get(id) 
 
 Returns record by "id" field
 
@@ -81,7 +81,7 @@ Returns record by "id" field
 
 **Returns**: `*`
 
-### IndexedArray.IndexedArray.getAt(pos) 
+### StrelkiJS.IndexedArray.getAt(pos) 
 
 Returns record at given position
 
@@ -91,7 +91,7 @@ Returns record at given position
 
 **Returns**: `*`
 
-### IndexedArray.IndexedArray.put(element) 
+### StrelkiJS.IndexedArray.put(element) 
 
 Stores element with unique "id" to array. If element with given "id" was already there, it will be overriden with the new element
 
@@ -100,7 +100,7 @@ Stores element with unique "id" to array. If element with given "id" was already
 **element**: , Stores element with unique "id" to array. If element with given "id" was already there, it will be overriden with the new element
 
 
-### IndexedArray.IndexedArray.del(id) 
+### StrelkiJS.IndexedArray.del(id) 
 
 Delete element by "id"
 
@@ -109,7 +109,7 @@ Delete element by "id"
 **id**: , Delete element by "id"
 
 
-### IndexedArray.IndexedArray.delMany(ids) 
+### StrelkiJS.IndexedArray.delMany(ids) 
 
 Delete multimple elements by array of ids
 
@@ -118,13 +118,13 @@ Delete multimple elements by array of ids
 **ids**: `Array`, Delete multimple elements by array of ids
 
 
-### IndexedArray.IndexedArray.toArray() 
+### StrelkiJS.IndexedArray.toArray() 
 
 Returns IndexedArray converted to regular Array
 
 **Returns**: `Array`
 
-### IndexedArray.IndexedArray.findIdsByIndex(filedName, value) 
+### StrelkiJS.IndexedArray.findIdsByIndex(filedName, value) 
 
 Find elements by index value, and return their ids
 
@@ -136,7 +136,7 @@ Find elements by index value, and return their ids
 
 **Returns**: `Array`, - array of ids, empty array if not found
 
-### IndexedArray.IndexedArray.doLookups(el, joinInfoArray) 
+### StrelkiJS.IndexedArray.doLookups(el, joinInfoArray) 
 
 For element el perform lookups according to joinInfoArray, and return all related records
 
@@ -147,7 +147,7 @@ For element el perform lookups according to joinInfoArray, and return all relate
 **joinInfoArray**: `Array`, For element el perform lookups according to joinInfoArray, and return all related records
 
 
-### IndexedArray.IndexedArray.query(joinInfoArray) 
+### StrelkiJS.IndexedArray.query(joinInfoArray) 
 
 Join other IndexedArrays according to joinInfoArray<pre>joinInfoArray = [ 	{ 		from_col:   mandatory field name in 'el' element 		to_table:   mandatory reference to IndexedArray 		to_col:     mandatory id or other indexed field in referenced IndexedArray 	        type:       'outer' for outer join, null for inner join 	        join:       optional nested joinInfoArray structure 	}, ] </pre>
 
@@ -157,7 +157,7 @@ Join other IndexedArrays according to joinInfoArray<pre>joinInfoArray = [ 	{
 
 **Returns**: `Array`, - array of records, where each record is an array of joined elements
 
-### IndexedArray.IndexedArray.where(fieldName, value, filterCallback) 
+### StrelkiJS.IndexedArray.where(fieldName, value, filterCallback) 
 
 Search array by index, and then by filterCallback function
 

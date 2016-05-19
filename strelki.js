@@ -1,8 +1,8 @@
 "use strict";
 
 /**
- * IndexedArray module
- * @module IndexedArray
+ * StrelkiJS module
+ * @module StrelkiJS
  */
 (function(exports){
 
