@@ -338,4 +338,4 @@
 
 	exports.IndexedArray = IndexedArray;
 	
-})(typeof exports === 'undefined'? this['IndexedArray']={} : exports);
+})(typeof exports === 'undefined'? this['StrelkiJS']={} : exports);
