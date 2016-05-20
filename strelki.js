@@ -3,7 +3,7 @@
 /**
  * StrelkiJS module
  * @module StrelkiJS
- * @author A.Maximov (amaksr)
+ * @author A. Maximov amaksr
  */
 (function(exports){
 
