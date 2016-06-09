@@ -6,6 +6,10 @@ Strelki.js is an array library that allows to create arrays with multiple hash i
 
 http://htmlpreview.github.io/?https://github.com/amaksr/Strelki.js/blob/master/docs/index.html
 
+## Playground ##
+
+https://www.izhforum.info/strelkijs/
+
 ## Quick Start ##
 
 Load library in node.js:
